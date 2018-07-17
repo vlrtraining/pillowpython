@@ -1,0 +1,35 @@
+Pillow is the friendly PIL fork by Alex Clark and Contributors. PIL is the Python Imaging Library by Fredrik Lundh and Contributors.
+
+
+https://auth0.com/blog/image-processing-in-python-with-pillow/
+pip install Pillow
+create image
+https://code-maven.com/create-images-with-python-pil-pillow
+------------
+from PIL import Image, ImageDraw
+img = Image.new(mode, size, color)
+img.save(filename)
+---------------
+from PIL import Image
+ 
+img = Image.new('RGB', (60, 30), color = (73, 109, 137))
+img.save('pil_color.png')
+------------
+size=width,hight=20,30
+----------
+from PIL import Image
+ 
+img = Image.new('RGB', (60, 30), color = 'red')
+img.save('pil_red.png')
+---------
+Green	#008000	rgb(0, 128, 0)
+Aqua	#00FFFF	rgb(0, 255, 255)
+Teal	#008080	rgb(0, 128, 128)
+Blue	#0000FF	rgb(0, 0, 255)
+--------------
+#######################
+Writing text on image
+
+git remote add origin git@github.com:vlrtraining/Pillow-module-python-telugu.git
+git push -u origin master
+jj
