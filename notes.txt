@@ -33,3 +33,17 @@ Writing text on image
 git remote add origin git@github.com:vlrtraining/Pillow-module-python-telugu.git
 git push -u origin master
 jj
+---
+covert image
+image = Image.open('unsplash_01.jpg')
+image.save('new_image.png')
+------------
+Color Transforms
+The Pillow library enables you to convert images between different pixel representations using the convert() method. It supports conversions between L (greyscale), RGB and CMYK modes.
+
+In the example below we convert the image from RGBA to L mode which will result in a black and white image.
+
+image = Image.open('unsplash_01.jpg')
+
+greyscale_image = image.convert('L')
+greyscale_image.save('greyscale_image.jpg')
