@@ -34,16 +34,81 @@ git remote add origin git@github.com:vlrtraining/Pillow-module-python-telugu.git
 git push -u origin master
 jj
 ---
-covert image
-image = Image.open('unsplash_01.jpg')
-image.save('new_image.png')
+image = Image.open('Data-science.jpg')
+image.save('Data-science.png')
+image.show()
 ------------
 Color Transforms
 The Pillow library enables you to convert images between different pixel representations using the convert() method. It supports conversions between L (greyscale), RGB and CMYK modes.
 
 In the example below we convert the image from RGBA to L mode which will result in a black and white image.
-
-image = Image.open('unsplash_01.jpg')
+image = Image.open('Data-science.jpg')
 
 greyscale_image = image.convert('L')
 greyscale_image.save('greyscale_image.jpg')
+cmyk_image = image.convert('CMYK')
+cmyk_image.save('cmyk_image.jpg')
+RGB_image = image.convert('RGB')
+RGB_image.save('rgb_image.jpg')
+-------------------------
+BLUR
+CONTOUR
+DETAIL
+EDGE_ENHANCE
+EDGE_ENHANCE_MORE
+EMBOSS
+FIND_EDGES
+SHARPEN
+SMOOTH
+SMOOTH_MORE
+-----------
+image attributes
+# The file format of the source file.
+print(image.format) 
+
+# The pixel format used by the image. Typical values are “1”, “L”, “RGB”, or “CMYK.”
+print(image.mode) 
+
+# Image size, in pixels. The size is given as a 2-tuple (width, height).
+print(image.size)
+# Colour palette table, if any.
+print(image.palette) 
+
+----
+
+rotating images
+image = Image.open('unsplash_01.jpg')
+
+image_rot_90 = image.rotate(90)
+image_rot_90.save('image_rot_90.jpg')
+
+image_rot_180 = image.rotate(180)
+image_rot_180.save('image_rot_180.jpg')-----------
+----
+image = Image.open('Digital marketing.png')
+logo = Image.open('vlrtra.jpg')
+image_copy = image.copy()
+image_copy.save('dm2.jpg')
+position = (((int(image.width /2))), ((int(image.height /2))))
+image.paste(logo, position)
+image.save('with logo.jpg')
+------------------
+Flipping Images
+You can also flip images to get their mirror version. This is done with the transpose() function. It takes one of the following options: PIL.Image.FLIP_LEFT_RIGHT, PIL.Image.FLIP_TOP_BOTTOM, PIL.Image.ROTATE_90, PIL.Image.ROTATE_180, PIL.Image.ROTATE_270 or PIL.Image.TRANSPOSE
+
+image = Image.open('Digital marketing.png')
+
+image_flip = image.transpose(Image.FLIP_LEFT_RIGHT)
+image_flip.save('Digital-marketing.png_flip.jpg')
+------------------
+Drawing on Images
+With Pillow, you can also draw on an image using the ImageDraw module. You can draw lines, points, ellipses, rectangles, arcs, bitmaps, chords, pieslices, polygons, shapes and text
+
+
+from PIL import Image, ImageDraw
+
+blank_image = Image.new('RGBA', (400, 300), 'white')
+img_draw = ImageDraw.Draw(blank_image)
+img_draw.rectangle((70, 50, 270, 200), outline='red', fill='blue')
+img_draw.text((70, 250), 'Hello World', fill='green')
+blank_image.save('drawn_image.jpg')
